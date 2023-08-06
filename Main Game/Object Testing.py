@@ -1,8 +1,11 @@
 import pygame
 import warnings
 import json
+import sys
 import os
-from Logistics import anim_manager as anim_m
+
+sys.path.append(os.path.abspath('..'))
+
 from Logistics import tbh
 
 info = pygame.display.Info()

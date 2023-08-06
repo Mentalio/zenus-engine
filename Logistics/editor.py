@@ -1,6 +1,7 @@
 import pygame
 import ctypes
 import tbh
+
 editor = 'mentalio_ind.mentalio_games.editor.1.0'
 ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(editor)
 
@@ -63,7 +64,7 @@ class item:
         Type is going to be used on the scroll wheel for floors and enemies
         """
         self.image_name = image_name + ".png"
-        image_name = "../Main Game/Images/" + image_name + ".png"
+        image_name = "../Images/" + image_name + ".png"
         self.image = pygame.transform.scale(pygame.image.load(image_name), [50, 50])
         self.image_sml = pygame.transform.scale(pygame.image.load(image_name), [30, 30])
         self.type = t
@@ -142,7 +143,8 @@ while grid_make:
         grid_pos[1] += 50
         grid_pos[0] = -25
 
-idk = tbh.textbox(rect(display_width / 2, display_height / 2, 300, 100), font, pygame.image.load("../Main Game/Images/text_input.png"), "Input name for levels JSON file")
+idk = tbh.textbox(rect(display_width / 2, display_height / 2, 300, 100), font, pygame.image.load(
+    "../Main Game/Images/text_input.png"), "Input name for levels JSON file")
 bg = pygame.image.load("../Main Game/Images/editor_bg.png")
 bg = pygame.transform.scale(bg, [display_width, display_height])
 text_input = True
