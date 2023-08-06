@@ -1,0 +1,150 @@
+{
+  "Walls" : [
+    {
+      "Position" : [75, 75], 
+      "Type" : 3 
+    },
+    {
+      "Position" : [225, 75], 
+      "Type" : 3 
+    },
+    {
+      "Position" : [275, 75], 
+      "Type" : 2 
+    },
+    {
+      "Position" : [325, 75], 
+      "Type" : 2 
+    },
+    {
+      "Position" : [425, 75], 
+      "Type" : 2 
+    },
+    {
+      "Position" : [525, 75], 
+      "Type" : 2 
+    },
+    {
+      "Position" : [625, 75], 
+      "Type" : 1 
+    },
+    {
+      "Position" : [75, 125], 
+      "Type" : 3 
+    },
+    {
+      "Position" : [225, 125], 
+      "Type" : 3 
+    },
+    {
+      "Position" : [425, 125], 
+      "Type" : 2 
+    },
+    {
+      "Position" : [525, 125], 
+      "Type" : 2 
+    },
+    {
+      "Position" : [625, 125], 
+      "Type" : 1 
+    },
+    {
+      "Position" : [75, 175], 
+      "Type" : 3 
+    },
+    {
+      "Position" : [225, 175], 
+      "Type" : 3 
+    },
+    {
+      "Position" : [275, 175], 
+      "Type" : 2 
+    },
+    {
+      "Position" : [325, 175], 
+      "Type" : 2 
+    },
+    {
+      "Position" : [425, 175], 
+      "Type" : 2 
+    },
+    {
+      "Position" : [525, 175], 
+      "Type" : 2 
+    },
+    {
+      "Position" : [625, 175], 
+      "Type" : 1 
+    },
+    {
+      "Position" : [75, 225], 
+      "Type" : 3 
+    },
+    {
+      "Position" : [225, 225], 
+      "Type" : 3 
+    },
+    {
+      "Position" : [475, 225], 
+      "Type" : 2 
+    },
+    {
+      "Position" : [625, 225], 
+      "Type" : 1 
+    },
+    {
+      "Position" : [75, 275], 
+      "Type" : 3 
+    },
+    {
+      "Position" : [225, 275], 
+      "Type" : 3 
+    },
+    {
+      "Position" : [475, 275], 
+      "Type" : 2 
+    },
+    {
+      "Position" : [625, 275], 
+      "Type" : 1 
+    },
+    {
+      "Position" : [75, 325], 
+      "Type" : 3 
+    },
+    {
+      "Position" : [125, 325], 
+      "Type" : 3 
+    },
+    {
+      "Position" : [225, 325], 
+      "Type" : 3 
+    },
+    {
+      "Position" : [275, 325], 
+      "Type" : 2 
+    },
+    {
+      "Position" : [325, 325], 
+      "Type" : 2 
+    },
+    {
+      "Position" : [475, 325], 
+      "Type" : 2 
+    },
+    {
+      "Position" : [625, 325], 
+      "Type" : 1 
+    },
+    {
+      "Position" : [675, 325], 
+      "Type" : 1 
+    }
+  ],
+"Image_Ref" : {
+  "0" : "Images/bin.png",
+  "1" : "Images/wall1.png",
+  "2" : "Images/wall2.png",
+  "3" : "Images/wall3.png"
+  }
+}
