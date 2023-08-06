@@ -65,6 +65,10 @@ class animation:
             surface.blit(img, selected_pos)
 
     def animate(self):
+        """
+        'Animates' the image by moving its internal ticks forward
+        When it hits the tick_time, inch
+        """
         self.ticks += 1
         if not self.ticks % self.tick_time:
             self.inch(1)
