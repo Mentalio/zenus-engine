@@ -6,9 +6,10 @@ import os
 
 sys.path.append(os.path.abspath('..'))
 directory_path = 'Levels'
-items = os.listdir(directory_path)
+levels = os.listdir(directory_path)
 
 from Logistics import tbh
+from Logistics import popout_list_helper
 
 info = pygame.display.Info()
 
@@ -109,6 +110,15 @@ key_mapping = {
     '?': pygame.K_QUESTION,
     '^': pygame.K_UP
 }
+
+
+def remove_prefix_list(prefix_list: list, prefix: str):
+    prefix_count = 0
+    for st in prefix_list:
+        if st.endswith(prefix):
+            prefix_list[prefix_count] = st[:-len(prefix)]
+        prefix_count += 1
+    return prefix_list
 
 
 def rect(position_x, position_y, width, height):
@@ -322,9 +332,10 @@ def load_json(json_name_input: str):
 # player hitboxes
 
 pygame.mixer.music.play(999999)
+levels = remove_prefix_list(levels, '.json')
 level_input = True
-text_box = tbh.textbox(rect(display_width / 2, display_height / 2, 300, 100), font,
-                       pygame.image.load("Images/text_input.png"), "Insert a JSON level name to load a level")
+level_popout = popout_list_helper.popout_list(rect(200, 100, 300, 100), font, pygame.image.load("Images/text_input.png"), "Click to see levels", levels)
+text_box = tbh.textbox(rect(display_width / 2, display_height / 2, 300, 100), font, pygame.image.load("Images/text_input.png"), "Insert a JSON level name to load a level")
 bg = pygame.image.load("Images/editor_bg.png")
 bg = pygame.transform.scale(bg, [display_width, display_height])
 
@@ -349,6 +360,7 @@ while running:
     if level_input:
         screen.blit(bg, [0, 0])
         text_box.update(screen)
+        level_popout.update(screen)
         if text_box.get_entered():
             load_json(text_box.text)
             level_input = False

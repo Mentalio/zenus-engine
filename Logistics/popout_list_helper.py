@@ -10,22 +10,24 @@ def rect(position_x, position_y, width, height):
     return Rectangle
 
 
-class textbox:
-    writeable = True
-    text = ""
+class popout_list:
     clicked = False
-    entered = False
+    last_click_time = 0
+    position = [0, 0]
 
-    def __init__(self, rectangle: pygame.rect.Rect, font: pygame.font.Font, img: pygame.surface.Surface, caption: str):
+    def __init__(self, rectangle: pygame.rect.Rect, font: pygame.font.Font, img: pygame.surface.Surface, input_text: str, items: list):
         """
         Sets all the base parameters to what you input
         So you don't have to manually input parameters
         If there's something I missed go make a branch
         """
-        self.caption = caption
+        self.items = items
+        self.text = input_text
         self.font = font
         self.rect = rectangle
         self.image = pygame.transform.scale(img, [self.get_rect()[2], self.get_rect()[3]])
+        self.position[0] = self.get_rect()[0] + self.get_rect()[2] / 2
+        self.position[1] = self.get_rect()[1] + self.get_rect()[3] / 2
 
     def get_rect(self):
         """
@@ -42,9 +44,10 @@ class textbox:
         mouse_clicked = pygame.mouse.get_pressed()
         if mouse_clicked[0]:
             if self.rect.collidepoint(mouse):
-                self.clicked = True
-            else:
-                self.clicked = False
+                current_time = pygame.time.get_ticks()
+                if current_time - self.last_click_time > 500:
+                    self.clicked = not self.clicked
+                    self.last_click_time = current_time
 
     def check_clicked_merged(self, mouse_pos: tuple, mouse_clicked):
         """
@@ -63,18 +66,21 @@ class textbox:
         Draws it depending on the __init__ inputs
         """
         text_render = self.font.render(self.text, True, (255, 255, 255))
-        caption_render = self.font.render(self.caption, True, (255, 255, 255))
         if text_render.get_rect()[2] > self.get_rect()[2]:
             self.text = self.text[:-1]
         surface.blit(self.image, [self.get_rect()[0], self.get_rect()[1]])
         surface.blit(text_render, [self.get_rect()[0] - text_render.get_rect()[2] / 2 + self.get_rect()[2] / 2,
                                    self.get_rect()[1] - text_render.get_rect()[3] / 2 + self.get_rect()[3] / 2])
-        surface.blit(caption_render, [self.get_rect()[0] - caption_render.get_rect()[2] / 2 + self.get_rect()[2] / 2,
-                                      self.get_rect()[1] - caption_render.get_rect()[3] / 2 + self.get_rect()[3] / 2 - 100])
-
-    def get_entered(self):
-        return self.entered
+        if self.clicked:
+            item_height = 0
+            item_offset = self.get_rect()[3] - 30
+            for item in self.items:
+                item_render = self.font.render(item, True, (255, 255, 255))
+                item_height += item_offset
+                surface.blit(item_render, [self.position[0] - item_render.get_width() / 2, self.position[1] + item_height])
+            item_height = 0
 
     def update(self, surface: pygame.surface.Surface):
         self.check_clicked_alone()
         self.draw(surface)
+
