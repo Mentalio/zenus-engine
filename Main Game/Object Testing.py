@@ -165,31 +165,31 @@ class hitbox_dmg(hitbox):
     def collided_with(self, collided):
         return
 
-    def move_up(self, amount: int | float):
+    def move_up(self, amount: int or float):
         self.position[1] -= amount
 
-    def move_left(self, amount: int | float):
+    def move_left(self, amount: int or float):
         self.position[0] -= amount
 
-    def move_down(self, amount: int | float):
+    def move_down(self, amount: int or float):
         self.position[1] += amount
 
-    def move_right(self, amount: int | float):
+    def move_right(self, amount: int or float):
         self.position[0] += amount
 
     def set_position(self, position: list):
         self.position = position
 
-    def velocity_up(self, amount: int | float):
+    def velocity_up(self, amount: int or float):
         self.velocity[1] -= amount
 
-    def velocity_left(self, amount: int | float):
+    def velocity_left(self, amount: int or float):
         self.velocity[0] -= amount
 
-    def velocity_down(self, amount: int | float):
+    def velocity_down(self, amount: int or float):
         self.velocity[1] += amount
 
-    def velocity_right(self, amount: int | float):
+    def velocity_right(self, amount: int or float):
         self.velocity[0] += amount
 
     def set_velocity(self, velocity: list):
@@ -404,12 +404,12 @@ while running:
                 if hb_check == hb:
                     continue
 
-                if isinstance(hb, hitbox_player) and isinstance(hb_check, hitbox_static | image_hitbox):
+                if isinstance(hb, hitbox_player) and isinstance(hb_check, hitbox_static or image_hitbox):
                     if rect(hb.position[0], hb.previous_position[1], hb.width, hb.height).colliderect(
                             hb_check.get_rect()):
                         hb.collided_with_x(hb_check)
 
-                if isinstance(hb, hitbox_player) and isinstance(hb_check, hitbox_static | image_hitbox):
+                if isinstance(hb, hitbox_player) and isinstance(hb_check, hitbox_static or image_hitbox):
                     if rect(hb.previous_position[0], hb.position[1], hb.width, hb.height).colliderect(
                             hb_check.get_rect()):
                         hb.collided_with_y(hb_check)
