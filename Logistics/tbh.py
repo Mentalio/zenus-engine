@@ -1,7 +1,6 @@
 import pygame
 
 pygame.init()
-screen = pygame.display.set_mode((2000, 1200))
 
 
 def rect(position_x, position_y, width, height):
