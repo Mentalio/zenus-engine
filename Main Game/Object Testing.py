@@ -3,6 +3,7 @@ import warnings
 import json
 import sys
 import os
+import random
 
 sys.path.append(os.path.abspath('..'))
 directory_path = 'Levels'
@@ -215,7 +216,7 @@ class hitbox_player(hitbox_dmg):
         self.position[1] = self.previous_position[1]
 
     def __init__(self, position: list, width: int, height: int, keys: str):
-
+        self.color = [random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)]
         self.keys = keys
         camera_influencers.append(self)
 
@@ -388,7 +389,7 @@ while running:
                 if walking_sound_cooldown > 0:
                     walking_sound_cooldown -= 1
 
-                pygame.draw.circle(screen, (255, 0, 0), [hb.position[0] - camera_pos[0] + display_width / 2,
+                pygame.draw.circle(screen, hb.color, [hb.position[0] - camera_pos[0] + display_width / 2,
                                                          hb.position[1] - camera_pos[1] + display_height / 2], 10)
 
             if isinstance(hb, hitbox_static):
