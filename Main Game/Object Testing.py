@@ -5,6 +5,8 @@ import sys
 import os
 
 sys.path.append(os.path.abspath('..'))
+directory_path = 'Levels'
+items = os.listdir(directory_path)
 
 from Logistics import tbh
 

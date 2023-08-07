@@ -64,7 +64,7 @@ class item:
         Type is going to be used on the scroll wheel for floors and enemies
         """
         self.image_name = image_name + ".png"
-        image_name = "../Images/" + image_name + ".png"
+        image_name = "../Main Game/Images/" + image_name + ".png"
         self.image = pygame.transform.scale(pygame.image.load(image_name), [50, 50])
         self.image_sml = pygame.transform.scale(pygame.image.load(image_name), [30, 30])
         self.type = t
